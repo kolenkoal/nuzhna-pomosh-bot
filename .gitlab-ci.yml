@@ -1,0 +1,12 @@
+stages:
+  - master
+
+deploy-master:
+  stage: master
+  tags:
+    - master
+  script:
+    - cd /home/specials/telegram-bot
+    - git pull
+    - npm ci
+    - pm2 restart daemon.json
